@@ -11,7 +11,7 @@ public class Triangulo {
     }
 
     public double getArea() {
-        double p = getPerimetro();
+        double p = getPerimetro() / 2;
         return Math.sqrt(p * (p-lado1) * (p-lado2) * (p-lado3));
     }
 
