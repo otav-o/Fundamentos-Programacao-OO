@@ -16,4 +16,5 @@ public class Empregado {
 
     private int anoNascimento; // optei por não usar Date
     private int anosTrabalhados;
+    private Inss calculo = new Inss(this);
 }
