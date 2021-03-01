@@ -14,6 +14,10 @@ public class Empregado {
         return anosTrabalhados;
     }
 
+    public boolean podeAposentar() {
+        return calculo.PodeAposentar();
+    }
+
     private int anoNascimento; // optei por não usar Date
     private int anosTrabalhados;
     private Inss calculo = new Inss(this);

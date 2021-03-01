@@ -11,6 +11,11 @@ package com.lista1;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        Empregado otavio = new Empregado(2001, 0);
+        Empregado daves = new Empregado(1854, 0);
+
+        System.out.println(otavio.podeAposentar());
+        System.out.println(daves.podeAposentar());
     }
 }
