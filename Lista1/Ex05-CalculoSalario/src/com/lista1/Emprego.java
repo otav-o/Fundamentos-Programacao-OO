@@ -2,6 +2,19 @@ package com.lista1;
 
 public class Emprego {
 
+    public Emprego(double cargaHoraria, double salarioHora) {
+        horasTrabalhadas = cargaHoraria;
+        this.salarioHora = salarioHora;
+    }
+
+    public double getSalarioLiquido(Empregado empregado) {
+        double salarioBruto = getSalarioBruto(empregado);
+        double inss = calcularInss(salarioBruto);
+        double ir = calcularIR(salarioBruto);
+
+        return (salarioBruto - inss - ir);
+    }
+
     private double getSalarioBruto(Empregado empregado) {
         return horasTrabalhadas * salarioHora + (50 * empregado.getNumeroDependentes());
     }
