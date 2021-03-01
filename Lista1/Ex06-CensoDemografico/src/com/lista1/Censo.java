@@ -6,7 +6,15 @@ public class Censo {
         this.populacao = populacao;
     }
 
-    private Pessoa maiorAltura() {
+    public double maiorAltura() {
+        return maisAlta().altura;
+    }
+
+    public double menorAltura() {
+        return maisBaixa().altura;
+    }
+
+    private Pessoa maisAlta() {
 
         Pessoa maisAlta = populacao[0];
 
@@ -15,6 +23,19 @@ public class Censo {
                 maisAlta = populacao[i];
         }
         return maisAlta;
+    }
+
+    private Pessoa maisBaixa() { // código repetido!
+
+        Pessoa maisBaixa = populacao[0];
+
+        for (int i = 0; i < populacao.length; i++) {
+            if (populacao[i].altura > maisBaixa.altura)
+                maisBaixa = populacao[i];
+        }
+        return maisBaixa;
+
+
     }
 
     private Pessoa[] populacao;
