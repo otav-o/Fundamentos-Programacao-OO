@@ -21,7 +21,13 @@ package com.lista1;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        Emprego pedreiro = new Emprego(160, 15); // horasTrabalhadas, salarioHora
+
+        Empregado daves = new Empregado(pedreiro, 2); // emprego, numeroDependentes
+
+        System.out.print("O salário de Daves, descontados todos os impostos e contribuições, é: "
+                + daves.getSalarioLiquido());
 
     }
 }
