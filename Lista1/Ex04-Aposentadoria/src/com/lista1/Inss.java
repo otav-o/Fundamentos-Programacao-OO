@@ -14,19 +14,19 @@ public class Inss {
         return false;
     }
 
-    public boolean aposentadoriaPorIdade() {
+    private boolean aposentadoriaPorIdade() {
         if (emp.getIdade(anoAtual) > 65)
             return true;
         return false;
     }
 
-    public boolean aposentadoriaTempoServico() {
+    private boolean aposentadoriaTempoServico() {
         if (emp.getAnosTrabalhados() > 30)
             return true;
         return false;
     }
 
-    public boolean aposentadoriaHibrida() {
+    private boolean aposentadoriaHibrida() {
         if (emp.getIdade(anoAtual) >= 60 && emp.getAnosTrabalhados() >= 25)
             return true;
         return false;
