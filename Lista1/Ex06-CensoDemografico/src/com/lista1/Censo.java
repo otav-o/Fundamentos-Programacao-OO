@@ -19,21 +19,22 @@ public class Censo {
 
     public double mediaAlturaMulheres() {
         double somaAltura = 0;
-        List<Pessoa> mulheres = listaMulheres();
+
+        List<Pessoa> mulheres = pessoasPorSexo(Genero.feminino);
         for (Pessoa p : mulheres) // para cada pessoa na lista de mulheres
             somaAltura += p.altura;
 
         return somaAltura / mulheres.size();
     }
 
-    private List<Pessoa> listaMulheres() { // retorna todas as mulheres da população
-        List<Pessoa> femeas = new ArrayList<>();
+    private List<Pessoa> pessoasPorSexo(Genero g) {
+        List<Pessoa> lista = new ArrayList<>();
 
         for (int i = 0; i < populacao.length; i++)
-            if (populacao[i].sexo == Genero.feminino)
-                femeas.add(populacao[i]);
+            if (populacao[i].sexo == g)
+                lista.add(populacao[i]);
 
-        return femeas;
+        return lista;
     }
 
     private Pessoa maisAlta() {
