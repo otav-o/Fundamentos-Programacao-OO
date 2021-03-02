@@ -10,9 +10,9 @@ public class Pessoa {
         this.altura = altura;
     }
 
-    private Genero sexo;
-    private String corOlhos;
-    private String corCabelos;
-    private int idade;
+    public Genero sexo;
+    public String corOlhos;
+    public String corCabelos;
+    public int idade;
     public double altura;
 }
