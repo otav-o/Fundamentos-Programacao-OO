@@ -16,5 +16,18 @@ public class Main {
 
     public static void main(String[] args) {
 
+        var emp = new Empresa(20000, retornarTrabalhadores());
+
+        System.out.println("Esta empresa pagou " + emp.calcularFolhaPagamento() + " reais em salários no último mês.");
+
+    }
+
+    public static Funcionario[] retornarTrabalhadores() {
+
+        var f1 = new Funcionario(true, 5000, 50, true, 0);
+        var f2 = new Funcionario(false, 1000, 0, false, 1000);
+        var f3 = new Funcionario(true, 500, 2, true, 400);
+
+        return new Funcionario[] {f1, f2, f3};
     }
 }
