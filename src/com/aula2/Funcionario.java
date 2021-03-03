@@ -2,12 +2,11 @@ package com.aula2;
 
 public class Funcionario {
 
-    public Funcionario(boolean trabalhaANoite, double salarioBase, int numeroFilhos, boolean usaValeTransporte, double totalVendas, Empresa empresa) {
+    public Funcionario(boolean trabalhaANoite, double salarioBase, int numeroFilhos, boolean usaValeTransporte, Empresa empresa) {
         this.trabalhaANoite = trabalhaANoite;
         this.salarioBase = salarioBase;
         this.numeroFilhos = numeroFilhos;
         this.usaValeTransporte = usaValeTransporte;
-        this.totalVendas = totalVendas;
         this.empresa = empresa;
     }
 
@@ -16,7 +15,14 @@ public class Funcionario {
         salario = adicionalFilhotes(salario);
         salario = deduzirValeTransporte(salario);
         salario = adicionalNoturno(salario);
+        salario = adicionalVendedor(salario);
 
+        return salario;
+    }
+
+    private double adicionalVendedor(double salario) {
+        if (ehVendedor)
+            salario += empresa.getTotalVendas() * 0.02;
         return salario;
     }
 
@@ -55,6 +61,6 @@ public class Funcionario {
     private double salarioBase;
     private int numeroFilhos;
     private boolean usaValeTransporte;
-    private double totalVendas;
+    private boolean ehVendedor;
     private Empresa empresa;
 }
