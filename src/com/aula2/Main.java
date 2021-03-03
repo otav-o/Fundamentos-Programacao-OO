@@ -16,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        var emp = new Empresa(20000, retornarTrabalhadores());
+        var emp = new Empresa(retornarTrabalhadores());
 
         System.out.println("Esta empresa pagou " + emp.calcularFolhaPagamento() + " reais em salários no último mês.");
 

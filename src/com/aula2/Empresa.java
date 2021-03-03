@@ -2,8 +2,7 @@ package com.aula2;
 
 public class Empresa {
 
-    public Empresa (double totalVendas, Funcionario[] funcionarios) {
-        this.totalVendas = totalVendas;
+    public Empresa (Funcionario[] funcionarios) {
         this.funcionarios = funcionarios;
     }
 
@@ -15,11 +14,5 @@ public class Empresa {
         return total;
     }
 
-    private double totalVendas; // inútil
-
     private Funcionario[] funcionarios;
-
-    public double getTotalVendas() {
-        return totalVendas;
-    } // inútil
 }
