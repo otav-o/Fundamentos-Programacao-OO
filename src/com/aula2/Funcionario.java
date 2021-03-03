@@ -13,7 +13,24 @@ public class Funcionario {
     public double CalcularSalario() {
         double salario = deduzirInss(salarioBase);
         salario = adicionalFilhotes(salario);
+        salario = deduzirValeTransporte(salario);
+        salario = adicionalNoturno(salario);
 
+        return salario;
+    }
+
+    private double adicionalNoturno(double salario) {
+        if (trabalhaANoite)
+            return salario * 1.05;
+        else
+            return salario;
+    }
+
+    private double deduzirValeTransporte(double salario) {
+        if (usaValeTransporte)
+            return salario * 0.97;
+        else
+            return salario;
     }
 
     private double adicionalFilhotes(double salario) {
