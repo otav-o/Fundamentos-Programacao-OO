@@ -17,14 +17,8 @@ public class Censo {
         return maisBaixa().altura;
     }
 
-    public double numeroHomens() {
-        List<Pessoa> homens = pessoasPorSexo(Genero.masculino); // problema de desempenho: vai executar toda vez que for chamado
-        return homens.size();
-    }
-
-    private double numeroMulheres() {
-        List<Pessoa> mulheres = pessoasPorSexo(Genero.feminino);
-        return mulheres.size();
+    public double numeroPorSexo(Genero g) {
+        return pessoasPorSexo(g).size(); // problema de desempenho: vai executar toda vez que for chamado (em vez de guardar o cálculo)
     }
 
     public double mediaAlturaMulheres() {
