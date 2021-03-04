@@ -17,6 +17,16 @@ public class Censo {
         return maisBaixa().altura;
     }
 
+    public double numeroHomens() {
+        List<Pessoa> homens = pessoasPorSexo(Genero.masculino); // problema de desempenho: vai executar toda vez que for chamado
+        return homens.size();
+    }
+
+    private double numeroMulheres() {
+        List<Pessoa> mulheres = pessoasPorSexo(Genero.feminino);
+        return mulheres.size();
+    }
+
     public double mediaAlturaMulheres() {
         double somaAltura = 0;
 
@@ -57,23 +67,7 @@ public class Censo {
                 maisBaixa = populacao[i];
         }
         return maisBaixa;
-
-
     }
 
     private Pessoa[] populacao;
 }
-/*
-    Faça um programa que compile dados acerca de uma população, analisando, para cada indivíduo:
-    - sexo (masculino, feminino)
-    - cor dos olhos (azuis, verdes, castanhos)
-    - cor dos cabelos (louros, castanhos, pretos)
-    - idade.
-    O aplicativo deve calcular e imprimir as seguintes informações:
-    a) a maior e a menor altura dos habitantes;
-    b) a média de altura das mulheres;
-    c) o número de homens;
-    d) A porcentagem de homens e de mulheres.
-    b) A porcentagem de indivíduos do sexo feminino entre 18 e 35 anos
-     e que tenham olhos verdes e cabelos louros
- */
