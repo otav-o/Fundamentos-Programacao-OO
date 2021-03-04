@@ -18,6 +18,20 @@ package com.lista1;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+	    var juizDeFora = retornarPessoas();
+	    Censo c1 = new Censo(juizDeFora);
+	    System.out.println(c1.retornarPesquisa());
+
+    }
+
+    public static Pessoa[] retornarPessoas() {
+        Pessoa p1 = new Pessoa(Genero.feminino, "Azul", "Castanho", 25, 1.60);
+        Pessoa p2 = new Pessoa(Genero.feminino, "Verde", "Verde", 18, 1.75);
+        Pessoa p3 = new Pessoa(Genero.masculino, "Preto", "Preto", 30, 1.80);
+        Pessoa p4 = new Pessoa(Genero.masculino, "Azul", "Amarelo", 22, 1.72);
+        Pessoa p5 = new Pessoa(Genero.masculino, "Verde", "Verde", 15, 1.50);
+
+        return new Pessoa[] {p1, p2, p3, p4, p5};
     }
 }

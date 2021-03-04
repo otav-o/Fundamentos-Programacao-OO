@@ -9,28 +9,43 @@ public class Censo {
         this.populacao = populacao;
     }
 
-    public double maiorAltura() {
+    private double maiorAltura() {
         return maisAlta().altura;
     }
 
-    public double menorAltura() {
+    private double menorAltura() {
         return maisBaixa().altura;
     }
 
-    public int numeroPorSexo(Genero g) {
+    public String retornarPesquisa() {
+        return "DADOS SOBRE ESTA POPULAÇÃO:\n" +
+                "Maior altura: " + maiorAltura() + "m.\n"+
+                "Menor altura: " + menorAltura() + "m.\n" +
+                "Altura média das mulheres: " + mediaAlturaMulheres() + "m.\n" +
+                "Número de homens: " + numeroPorSexo(Genero.masculino)+ "\n" +
+                "Porcentagem de homens: " + numeroPorSexo(Genero.masculino)/populacao.length * 100 + "%\n" +
+                "Porcentagem de mulheres: " + numeroPorSexo(Genero.feminino)/populacao.length * 100 + "%\n" +
+                "Mulheres loiras de olhos verdes entre 18 e 35 anos: " + porcentagemPorSexoIdadeOlhosECabelos(18, 35, Genero.feminino, "Verde", "Loiro");
+    }
+
+    private int numeroPorSexo(Genero g) {
         return pessoasPorSexo(g).size(); // problema de desempenho: vai executar toda vez que for chamado (em vez de guardar o cálculo)
     }
 
-    public double porcentagemPorSexoIdadeOlhosECabelos(int idadeMin, int idadeMax, Genero g, String corOlhos, String corCabelos) { // horrível!
+    private double porcentagemPorSexoIdadeOlhosECabelos(int idadeMin, int idadeMax, Genero g, String corOlhos, String corCabelos) { // horrível!
         int cont = 0;
         for (Pessoa p : populacao)
-            if (p.idade >= idadeMin && p.idade <= idadeMax && p.sexo == g && p.corOlhos == corOlhos && p.corCabelos == corCabelos)
+            if (p.idade >= idadeMin &&
+                    p.idade <= idadeMax &&
+                    p.sexo == g &&
+                    p.corOlhos == corOlhos &&
+                    p.corCabelos == corCabelos)
                 cont++;
 
         return cont / populacao.length;
     }
 
-    public double mediaAlturaMulheres() {
+    private double mediaAlturaMulheres() {
         double somaAltura = 0;
 
         List<Pessoa> mulheres = pessoasPorSexo(Genero.feminino);
