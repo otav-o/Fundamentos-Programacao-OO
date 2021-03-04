@@ -23,9 +23,10 @@ public class Censo {
                 "Menor altura: " + menorAltura() + "m.\n" +
                 "Altura média das mulheres: " + mediaAlturaMulheres() + "m.\n" +
                 "Número de homens: " + numeroPorSexo(Genero.masculino)+ "\n" +
-                "Porcentagem de homens: " + numeroPorSexo(Genero.masculino)/populacao.length * 100 + "%\n" +
-                "Porcentagem de mulheres: " + numeroPorSexo(Genero.feminino)/populacao.length * 100 + "%\n" +
-                "Mulheres loiras de olhos verdes entre 18 e 35 anos: " + porcentagemPorSexoIdadeOlhosECabelos(18, 35, Genero.feminino, "Verde", "Loiro");
+                "Porcentagem de homens: " + (double) numeroPorSexo(Genero.masculino)/populacao.length * 100 + "%\n" +
+                "Porcentagem de mulheres: " + (double) numeroPorSexo(Genero.feminino)/populacao.length * 100 + "%\n" +
+                "Mulheres loiras de olhos verdes entre 18 e 35 anos: "
+                + porcentagemPorSexoIdadeOlhosECabelos(18, 35, Genero.feminino, "Verde", "Loiro") + "% do total";
     }
 
     private int numeroPorSexo(Genero g) {
@@ -42,7 +43,7 @@ public class Censo {
                     p.corCabelos == corCabelos)
                 cont++;
 
-        return cont / populacao.length;
+        return (double)cont / populacao.length * 100;
     }
 
     private double mediaAlturaMulheres() {
@@ -81,7 +82,7 @@ public class Censo {
         Pessoa maisBaixa = populacao[0];
 
         for (int i = 0; i < populacao.length; i++) {
-            if (populacao[i].altura > maisBaixa.altura)
+            if (populacao[i].altura < maisBaixa.altura)
                 maisBaixa = populacao[i];
         }
         return maisBaixa;
