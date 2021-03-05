@@ -1,6 +1,6 @@
 package com.lista1;
 
-public class Peixe {
+public class Peixe implements IPescado{
     public Peixe(double peso) {
         this.peso = peso;
     }

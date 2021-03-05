@@ -2,15 +2,15 @@ package com.lista1;
 
 public class RegulamentoPesca {
 
-    public double calcularMulta(Peixe[] peixes) {
+    public double calcularMulta(IPescado[] pescados) {
         double pesoExcedido = 0;
-        for (Peixe p : peixes) {
-            if (p.getPeso() > pesoMaximoPorPeixe)
-                pesoExcedido += p.getPeso() - pesoMaximoPorPeixe;
+        for (IPescado p : pescados) {
+            if (p.getPeso() > pesoMaximoPorPescado)
+                pesoExcedido += p.getPeso() - pesoMaximoPorPescado;
         }
         return pesoExcedido * multaPorQuiloExcedente;
     }
 
     private double multaPorQuiloExcedente = 4;
-    private double pesoMaximoPorPeixe = 50;
+    private double pesoMaximoPorPescado = 50;
 }
