@@ -9,10 +9,17 @@
 
 package com.lista1;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        var peixes = Pescar();
+        
+        Scanner s = new Scanner(System.in);
+        System.out.println("Quantos peixes você quer cadastrar? ");
+        int n = s.nextInt();
+
+        var peixes = CadastrarPeixes(n);
 
         var regulamento = new RegulamentoPesca();
 
@@ -20,13 +27,16 @@ public class Main {
 
     }
 
-    private static Peixe[] Pescar() {
-        return new Peixe [] {
-                new Peixe(35),
-                new Peixe(50),
-                new Peixe(52),
-                new Peixe(10),
-                new Peixe(65)
-        };
+    private static Peixe[] CadastrarPeixes(int quantidade) {
+        Peixe[] peixes = new Peixe[quantidade];
+
+        Scanner s = new Scanner(System.in);
+
+        for (int i = 0; i < quantidade; i++) {
+            System.out.printf("Insira o peso do %d° peixe: ", i + 1);
+            peixes[i] = new Peixe(s.nextDouble()); // gambiarra? seria melhor uma lista
+        }
+
+        return peixes;
     }
 }
