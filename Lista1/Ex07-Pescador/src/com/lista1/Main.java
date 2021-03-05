@@ -12,6 +12,21 @@ package com.lista1;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        var peixes = Pescar();
+
+        var regulamento = new RegulamentoPesca();
+
+        System.out.println("Multa de: R$" + regulamento.calcularMulta(peixes));
+
+    }
+
+    private static Peixe[] Pescar() {
+        return new Peixe [] {
+                new Peixe(35),
+                new Peixe(50),
+                new Peixe(52),
+                new Peixe(10),
+                new Peixe(65)
+        };
     }
 }
