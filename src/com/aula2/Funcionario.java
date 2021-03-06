@@ -11,13 +11,8 @@ public class Funcionario {
     }
 
     public double CalcularSalario() {
-        double salario = deduzirInss(salarioBase);
-        salario = adicionalFilhotes(salario);
-        salario = deduzirValeTransporte(salario);
-        salario = adicionalNoturno(salario);
-        salario = adicionalVendedor(salario);
-
-        return salario;
+        return salarioBase - descontoInss() - descontoValeTransporte()
+                + adicionalFilhotes() + adicionalNoturno() + adicionalVendedor();
     }
 
     public void setNumeroFilhos(int numeroFilhos) {
@@ -26,40 +21,37 @@ public class Funcionario {
         }
     }
 
-    private double adicionalVendedor(double salario) {
+    private double adicionalVendedor() {
         if (ehVendedor)
-            salario += totalVendas * 0.02;
-        return salario;
+            return totalVendas * 0.02;
+        return 0;
     }
 
-    private double adicionalNoturno(double salario) {
-        if (trabalhaANoite)
-            return salario * 1.05;
-        else
-            return salario;
+    private double adicionalNoturno() {
+        return trabalhaANoite ? salarioBase * 0.05 : 0;
     }
 
-    private double deduzirValeTransporte(double salario) {
+    private double descontoValeTransporte() {
         if (usaValeTransporte)
-            return salario * 0.97;
+            return salarioBase * 0.03;
         else
-            return salario;
+            return 0;
     }
 
-    private double adicionalFilhotes(double salario) {
+    private double adicionalFilhotes() {
         int numero = numeroFilhos;
 
         if (numero > 3)
             numero = 3;
 
         if (numero > 0)
-            salario += 50 * numero;
-
-        return salario;
+            return 50 * numero;
+        else
+            return 0;
     }
 
-    private double deduzirInss(double salario) {
-        return salario * 0.87;
+    private double descontoInss() {
+        return salarioBase * 0.13;
     }
 
 
