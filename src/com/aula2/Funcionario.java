@@ -20,6 +20,12 @@ public class Funcionario {
         return salario;
     }
 
+    public void setNumeroFilhos(int numeroFilhos) {
+        if (numeroFilhos >= 0) {
+            this.numeroFilhos = numeroFilhos;
+        }
+    }
+
     private double adicionalVendedor(double salario) {
         if (ehVendedor)
             salario += totalVendas * 0.02;
