@@ -16,6 +16,10 @@ public class Aluno {
         this.jaVotou = true;
     }
 
+    public boolean getEhCandidato() {
+        return ehCandidato;
+    }
+
     private String nome;
     private boolean jaVotou;
     private boolean ehCandidato;
