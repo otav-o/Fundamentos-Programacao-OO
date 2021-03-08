@@ -6,6 +6,7 @@ public class Eleicao {
 
     public Eleicao (List<Aluno> turma) {
         this.turma = turma;
+        this.candidatos = retornarCandidatos();
     }
 
     public void realizarEleicao() {
@@ -21,4 +22,5 @@ public class Eleicao {
     }
 
     private List<Aluno> turma;
+    private List<Aluno> candidatos;
 }
