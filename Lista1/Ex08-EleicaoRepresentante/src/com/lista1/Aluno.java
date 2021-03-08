@@ -2,8 +2,10 @@ package com.lista1;
 
 public class Aluno {
 
-    public Aluno(String nome) {
+    public Aluno(String nome, boolean ehCandidato) {
         this.nome = nome;
+        this.ehCandidato = ehCandidato;
+        jaVotou = false;
     }
 
     public void votar(Aluno a) throws Exception {
@@ -16,5 +18,6 @@ public class Aluno {
 
     private String nome;
     private boolean jaVotou;
+    private boolean ehCandidato;
     private int votosRecebidos;
 }
