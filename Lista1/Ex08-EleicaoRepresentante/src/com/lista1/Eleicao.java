@@ -2,6 +2,9 @@ package com.lista1;
 import java.util.List;
 import java.util.Scanner;
 
+/* Reconheço que o tratamento de exceções não está bom, e estou imprimindo a partir da classe Eleicao (apesar de ser em poucos pontos)
+* Também sei do bug em que tentar votar novamente gasta uma iteração no foreach de iniciarVotacao() - eu deveria lançar exceção em Eleição,
+* e não em Aluno. Mas fiz só para testar!*/
 
 public class Eleicao {
 
@@ -16,6 +19,7 @@ public class Eleicao {
         }
         System.out.println(retornarResultados());
     }
+
     private String retornarResultados() {
         Aluno vencedor = retornarVencedor();
 
