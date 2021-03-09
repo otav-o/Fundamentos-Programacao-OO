@@ -14,6 +14,21 @@ public class Eleicao {
             Aluno eleitor = logarEleitor();
             colherVoto(eleitor);
         }
+        System.out.println(retornarResultados());
+    }
+    private String retornarResultados() {
+        Aluno vencedor = retornarVencedor();
+
+        return String.format("O(A) aluno(a) %s é o(a) novo(a) representante de turma, com %.2f%% dos votos.",
+                vencedor.getNome(), (double) vencedor.getVotosRecebidos() / turma.size() * 100);
+    }
+
+    private Aluno retornarVencedor() {
+        Aluno vencedor = turma.get(0);
+        for (Aluno a : turma)
+            if (a.getVotosRecebidos() > vencedor.getVotosRecebidos())
+                vencedor = a;
+        return vencedor;
     }
 
     private Aluno logarEleitor() {
