@@ -2,18 +2,23 @@ package com.lista1;
 
 import com.lista1.acessorios.IAcessorio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Carro {
     //private Modelo modelo;
 
 
-    private double calcularPrecoFinal() {
+    public double calcularPrecoFinal() {
         double precoFinal = calcularSomaAcessorios();
         // + modelo - impostos
 
-
         return precoFinal;
+    }
+
+    public void adicionarAcessorio(IAcessorio ... ac) {
+        for (IAcessorio a : ac)
+            acessorios.add(a);
     }
 
     private double calcularSomaAcessorios() {
@@ -22,5 +27,6 @@ public class Carro {
             somaAcessorios += a.getPreco();
         return somaAcessorios;
     }
-    private List<IAcessorio> acessorios;
+
+    private List<IAcessorio> acessorios = new ArrayList<>();
 }
