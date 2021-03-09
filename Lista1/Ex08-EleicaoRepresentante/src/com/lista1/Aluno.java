@@ -2,9 +2,9 @@ package com.lista1;
 
 public class Aluno {
 
-    public Aluno(String nome, boolean ehCandidato) {
+    public Aluno(int matricula, String nome) {
+        this.matricula = matricula;
         this.nome = nome;
-        this.ehCandidato = ehCandidato;
         jaVotou = false;
     }
 
@@ -16,12 +16,16 @@ public class Aluno {
         this.jaVotou = true;
     }
 
-    public boolean getEhCandidato() {
-        return ehCandidato;
+    public String getNome() {
+        return nome;
+    }
+
+    public int getMatricula() {
+        return matricula;
     }
 
     private String nome;
     private boolean jaVotou;
-    private boolean ehCandidato;
     private int votosRecebidos;
+    private int matricula;
 }
