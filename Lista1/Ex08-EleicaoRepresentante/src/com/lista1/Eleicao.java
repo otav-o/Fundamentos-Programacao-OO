@@ -29,6 +29,23 @@ public class Eleicao {
         return eleitor;
     }
 
+    private void colherVoto(Aluno eleitor) {
+        Scanner s = new Scanner(System.in);
+        System.out.printf("Olá, %s. Insira a matrícula do seu candidato: ", eleitor.getNome());
+        Aluno candidato = null;
+        try {
+            candidato = retornarAlunoPorMatricula(s.nextInt());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            colherVoto(eleitor);
+        }
+        try {
+            eleitor.votar(candidato);
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + ". Voto não registrado.");
+        }
+    }
+
     private Aluno retornarAlunoPorMatricula(int matricula) throws Exception {
         for (Aluno a : turma)
             if (a.getMatricula() == matricula)
