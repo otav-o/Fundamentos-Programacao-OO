@@ -21,6 +21,24 @@ public class Carro {
             acessorios.add(a);
     }
 
+    private double calcularAliquotaImposto() {
+        return calcularIpi() + calcularImpostoImportacao();
+    }
+
+    private double calcularImpostoImportacao() {
+        if (ehImportado)
+            return 0.3;
+        else
+            return 0;
+    }
+
+    private double calcularIpi() {
+        double ipi = 0.2;
+        if (motor.getCilindradas() == 1.0)
+            ipi = 0.1;
+        return ipi;
+    }
+
     private double calcularSomaAcessorios() {
         double somaAcessorios = 0;
         for (IAcessorio a : acessorios)
@@ -29,4 +47,5 @@ public class Carro {
     }
 
     private List<IAcessorio> acessorios = new ArrayList<>();
+    private boolean ehImportado;
 }
