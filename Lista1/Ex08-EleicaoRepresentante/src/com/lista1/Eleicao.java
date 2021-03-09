@@ -1,7 +1,7 @@
 package com.lista1;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 
 public class Eleicao {
 
@@ -10,6 +10,13 @@ public class Eleicao {
     }
 
 
+
+    private Aluno retornarAlunoPorMatricula(int matricula) throws Exception {
+        for (Aluno a : turma)
+            if (a.getMatricula() == matricula)
+                return a;
+        throw new Exception("Não existe aluno com esta matrícula.");
+    }
 
     private List<Aluno> turma;
 }
