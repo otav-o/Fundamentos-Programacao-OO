@@ -24,6 +24,10 @@ public class Aluno {
         return matricula;
     }
 
+    public int getVotosRecebidos() {
+        return votosRecebidos;
+    }
+
     private String nome;
     private boolean jaVotou;
     private int votosRecebidos;
