@@ -14,6 +14,7 @@ public class Main {
         var turma = gerarAlunos();
         var eleicao2021 = new Eleicao(turma);
         eleicao2021.iniciarVotacao();
+        System.out.println(eleicao2021.retornarResultados());
     }
 
     private static List<Aluno> gerarAlunos() {

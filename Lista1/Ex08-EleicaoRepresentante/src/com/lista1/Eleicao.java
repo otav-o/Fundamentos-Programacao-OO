@@ -17,10 +17,9 @@ public class Eleicao {
             Aluno eleitor = logarEleitor();
             colherVoto(eleitor);
         }
-        System.out.println(retornarResultados());
     }
 
-    private String retornarResultados() {
+    public String retornarResultados() {
         Aluno vencedor = retornarVencedor();
 
         return String.format("O(A) aluno(a) %s é o(a) novo(a) representante de turma, com %.2f%% dos votos.",
@@ -42,7 +41,7 @@ public class Eleicao {
         try {
             eleitor = retornarAlunoPorMatricula(s.nextInt());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()); // provavelmente se imprime no main ou em uma view
             eleitor = logarEleitor();
         }
         return eleitor;
