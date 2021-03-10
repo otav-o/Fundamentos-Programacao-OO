@@ -24,11 +24,11 @@ public class Main {
 
     public static void main(String[] args) {
         var c = gerarCarroCompleto();
-        System.out.println(c.calcularPrecoFinal());
+        System.out.println(c.getPrecoFinal());
     }
 
     private static Carro gerarCarroCompleto() {
-        var c = new Carro();
+        var c = new Carro("Celta", new Motor(1.0));
         c.adicionarAcessorio(
                 new Alarme(),
                 new ArCondicionado(),
