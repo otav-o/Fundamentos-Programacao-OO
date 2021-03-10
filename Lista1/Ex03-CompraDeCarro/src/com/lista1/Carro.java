@@ -6,19 +6,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carro {
-    //private Modelo modelo;
+    public Carro (String modelo, Motor motor) {
+        this.modelo = modelo;
+        this.motor = motor;
+    }
 
+    public double getPrecoFinal() {
+        preco = getPrecoModelo() +
+                calcularSomaAcessorios();
 
-    public double calcularPrecoFinal() {
-        double precoFinal = calcularSomaAcessorios();
-        // + modelo - impostos
+        preco += preco * (1 + calcularAliquotaImposto());
 
-        return precoFinal;
+        return preco;
     }
 
     public void adicionarAcessorio(IAcessorio ... ac) {
         for (IAcessorio a : ac)
             acessorios.add(a);
+    }
+
+    private double getPrecoModelo() {
+        if (modelo == "Celta")
+            return 15000;
+        else
+            return 10000;
     }
 
     private double calcularAliquotaImposto() {
@@ -47,5 +58,8 @@ public class Carro {
     }
 
     private List<IAcessorio> acessorios = new ArrayList<>();
+    private double preco;
+    private Motor motor;
     private boolean ehImportado;
+    private String modelo;
 }
