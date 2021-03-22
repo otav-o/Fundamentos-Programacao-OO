@@ -6,26 +6,19 @@ public class ComiteConsole {
         artigosParaAvaliar = artigos;
     }
 
-    public void avaliar() {
-        for (Artigo a : artigosParaAvaliar) {
-            atribuirNota(a);
-        }
-    }
-
-    public void ImprimirResultado () {
+    public String retornarResultado () {
         ordenarArtigosPorNota();
         var primeiro = artigosParaAvaliar.get(0);
         var segundo = artigosParaAvaliar.get(1);
         var terceiro = artigosParaAvaliar.get(2);
 
-        System.out.printf("Artigos vencedores: \n" +
+        return String.format("Artigos vencedores: \n" +
                 "1° - %s, nota: %.2f\n" +
                 "2° - %s, nota: %.2f\n" +
                 "3° - %s, nota: %.2f"
         , primeiro.getTitulo(), primeiro.getNota(),
                 segundo.getTitulo(), segundo.getNota(),
                 terceiro.getTitulo(), terceiro.getNota());
-
     }
 
     private void ordenarArtigosPorNota() {
@@ -51,14 +44,9 @@ public class ComiteConsole {
         artigosParaAvaliar.set(j, aux);
     }
 
-    private void atribuirNota(Artigo a) {
-        System.out.printf("Artigo: %s\n" +
-                "Resumo: %s\n" +
-                "Sua nota: ", a.getTitulo(), a.getResumo());
-
-        a.setNota(s.nextDouble());
+    public List<Artigo> getArtigosParaAvaliar() {
+        return artigosParaAvaliar;
     }
 
     private List<Artigo> artigosParaAvaliar;
-    private Scanner s = new Scanner(System.in);
 }

@@ -14,6 +14,7 @@ import Pessoa.Professor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -21,8 +22,22 @@ public class Main {
 	    var artigos = criarArtigos();
 	    atribuirAutores(artigos);
 	    ComiteConsole c = new ComiteConsole(artigos);
-	    c.avaliar();
-	    c.ImprimirResultado();
+	    avaliar(c);
+        System.out.println(c.retornarResultado());
+    }
+
+    public static void avaliar(ComiteConsole c) {
+        for (Artigo a : c.getArtigosParaAvaliar()) {
+            atribuirNota(a);
+        }
+    }
+
+    private static void atribuirNota(Artigo a) {
+        System.out.printf("Artigo: %s\n" +
+                "Resumo: %s\n" +
+                "Sua nota: ", a.getTitulo(), a.getResumo());
+
+        a.setNota(s.nextDouble());
     }
 
     private static List<Artigo> criarArtigos() {
@@ -43,4 +58,5 @@ public class Main {
         for (var a : artigos)
             a.addAutor(p1, p2, p3);
     }
+    private static Scanner s = new Scanner(System.in);
 }
