@@ -2,6 +2,11 @@ package Compra;
 
 public class Compra {
 
+    public Compra(Pessoa pessoa, Produto produto) {
+        this.pessoa = pessoa;
+        this.produto = produto;
+    }
+
     public void comprar(Pessoa pessoa, Produto produto) {
         // ??
     }
