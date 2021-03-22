@@ -12,6 +12,45 @@ public class ComiteConsole {
         }
     }
 
+    public void ImprimirResultado () {
+        ordenarArtigosPorNota();
+        var primeiro = artigosParaAvaliar.get(1);
+        var segundo = artigosParaAvaliar.get(2);
+        var terceiro = artigosParaAvaliar.get(3);
+
+        System.out.printf("Artigos vencedores: \n" +
+                "1° - %s, nota: %f\n" +
+                "2° - %s, nota: %f\n" +
+                "3° - %s, nota: %f"
+        , primeiro.getTitulo(), primeiro.getNota(),
+                segundo.getTitulo(), segundo.getNota(),
+                terceiro.getTitulo(), terceiro.getNota());
+
+    }
+
+    private void ordenarArtigosPorNota() {
+        int fim = artigosParaAvaliar.size() - 1; // inicialmente, o fim é a última posição do vetor.
+        int pos; // indica a posição da última troca
+
+        do
+        {
+            pos = -1;
+            for (int i = 0; i < fim; i++)
+                if (artigosParaAvaliar.get(i).getNota() > artigosParaAvaliar.get(i + 1).getNota())
+                {
+                    InverterPosicoes(i, i + 1);
+                    pos = i;
+                }
+            fim = pos; // só vai pesquisar até a última posição trocada
+        } while (pos > 0);
+    }
+
+    private void InverterPosicoes(int i, int j) {
+        var aux = artigosParaAvaliar.get(i);
+        artigosParaAvaliar.set(i, artigosParaAvaliar.get(j));
+        artigosParaAvaliar.set(j, aux);
+    }
+
     private void atribuirNota(Artigo a) {
         System.out.printf("Artigo: %s\n" +
                 "Resumo: %s\n" +
