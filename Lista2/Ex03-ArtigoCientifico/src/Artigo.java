@@ -12,6 +12,14 @@ public class Artigo {
         autores.add(p);
     }
 
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+
+    public double getNota() {
+        return nota;
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -23,4 +31,5 @@ public class Artigo {
     private String titulo;
     private String resumo;
     private List<Pessoa> autores = new ArrayList<Pessoa>();
+    private double nota; // nota não deveria estar aqui, pois um artigo pode participar de várias competições
 }
