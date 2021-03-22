@@ -8,8 +8,9 @@ public class Artigo {
         this.titulo = titulo; this.resumo = resumo;
     }
 
-    public void AddAutor(Pessoa p) {
-        autores.add(p);
+    public void addAutor(Pessoa... pessoas) {
+        for (Pessoa p : pessoas)
+            autores.add(p);
     }
 
     public void setNota(double nota) {
