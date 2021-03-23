@@ -1,6 +1,8 @@
 public class Jogador extends Atleta {
 
-    public Jogador(int numero, int posicao) {
+    public Jogador(String nome, double peso, int numero, int posicao) {
+        this.nome = nome;
+        this.setPeso(peso);
         this.numero = numero;
         this.posicao = posicao;
     }

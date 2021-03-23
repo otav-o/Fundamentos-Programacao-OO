@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class TimeFutebol {
@@ -6,6 +7,11 @@ public class TimeFutebol {
         this.nome = nome;
         this.cidade = cidade;
         this.estado = estado;
+    }
+
+    public void addJogador(Jogador... colecao) {
+        for(var jogador: colecao)
+            jogadores.add(jogador);
     }
 
     public String getNome() {
@@ -32,9 +38,13 @@ public class TimeFutebol {
         this.estado = estado;
     }
 
+    public List<Jogador> getJogadores() {
+        return jogadores;
+    }
+
     private String nome;
     private String cidade;
     private String estado;
 
-    private List<Jogador> jogadores;
+    private List<Jogador> jogadores = new ArrayList<>();
 }
