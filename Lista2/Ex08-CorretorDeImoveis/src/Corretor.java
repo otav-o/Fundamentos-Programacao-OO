@@ -8,6 +8,13 @@ public class Corretor {
         this.idade = idade;
     }
 
+    public double calcularComissaoTotal() {
+        double total = 0;
+        for (var imovel : carteira)
+            total += imovel.getValorComissao();
+        return total;
+    }
+
     public void addImovel(Imovel i) {
         carteira.add(i);
     }
