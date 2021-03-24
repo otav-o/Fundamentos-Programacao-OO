@@ -13,6 +13,14 @@ public class Ponto {
         return d;
     }
 
+    public double getAbscissa() {
+        return abscissa;
+    }
+
+    public double getOrdenada() {
+        return ordenada;
+    }
+
     private double abscissa;
     private double ordenada;
 
