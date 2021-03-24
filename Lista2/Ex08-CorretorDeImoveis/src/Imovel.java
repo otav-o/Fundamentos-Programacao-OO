@@ -1,8 +1,9 @@
 public class Imovel {
 
-    public Imovel(Endereco endereco, double preco) {
+    public Imovel(Endereco endereco, double preco, double porcentagemComissao) {
         this.endereco = endereco;
         this.preco = preco;
+        this.porcentagemComissao = porcentagemComissao;
     }
 
     public double getValorComissao() {
