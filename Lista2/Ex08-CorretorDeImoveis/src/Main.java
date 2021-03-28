@@ -30,9 +30,10 @@ public class Main {
         System.out.print("Este imóvel é antigo? ");
         char resp = s.next().toCharArray()[0];
 
-        if (resp == 'S' || resp == 's')
-            return new ImovelAntigo(retornarEndereco(), preco, porcentagemComissao);
-
+        if (resp == 'S' || resp == 's') {
+            System.out.print("Digite o valor do desconto: "); double desconto = s.nextDouble();
+            return new ImovelAntigo(retornarEndereco(), preco, porcentagemComissao, desconto);
+        }
         return new Imovel(retornarEndereco(), preco, porcentagemComissao);
     }
 
