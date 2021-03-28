@@ -16,30 +16,21 @@
 import java.util.Scanner;
 
 public class Main {
-    static Scanner s = new Scanner(System.in);
 
     public static void main(String[] args) {
-        var prof = cadastrarProfessor();
-        //cadastrarDisciplinas(prof);
+        var prof = new Professor("Daves", 4);
+
+        cadastrarDisciplinas(prof);
+
+        var salarioMensal = prof.calcularSalario(25);
+
+        System.out.println("O salário deste professor é " + salarioMensal);
     }
 
-    private static Professor cadastrarProfessor() {
-
-        System.out.printf("Cadastro de professor.\n" +
-                "Nome: ");
-        var nome = s.next();
-        int escolha = menuEspecializacao();
-
-        return new Professor(nome, escolha);
-    }
-
-    private static int menuEspecializacao() {
-        System.out.print("Escolha o grau de instrução\n" +
-                "(1) Superior completo\n" +
-                "(2) Especialização\n" +
-                "(3) Mestrado completo\n" +
-                "(4) Doutorado completo\n" +
-                "Digite o número: ");
-        return s.nextInt();
+    private static void cadastrarDisciplinas(Professor prof) {
+        prof.addDisciplina(new Disciplina("FPOO", 4, false));
+        prof.addDisciplina(new Disciplina("Sistemas Operacionais", 4, true));
+        prof.addDisciplina(new Disciplina("Padrões de Projeto", 2, false));
+        prof.addDisciplina(new Disciplina("Redes de Computadores", 6, true));
     }
 }
