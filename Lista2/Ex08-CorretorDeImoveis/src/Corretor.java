@@ -19,6 +19,10 @@ public class Corretor {
         carteira.add(i);
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     private String nome;
     private int idade;
     private List<Imovel> carteira = new ArrayList<>();
