@@ -19,6 +19,8 @@ public class Principal2
          }else if (menu == 1){
              
              funcionarios.add( cadastrarFuncionario() ); 
+         } else if (menu == 3) {
+             listarSindicalizados(funcionarios);
          }
             
             
@@ -26,7 +28,14 @@ public class Principal2
         
         
     }
-    
+
+    private static void listarSindicalizados(ArrayList<Funcionario> funcionarios) {
+        System.out.println("## Funcionários sindicalizados: ");
+        for (Funcionario f : funcionarios)
+            if (f instanceof ISindicato)
+                System.out.println(f.getNome());
+    }
+
     public static Funcionario cadastrarFuncionario(){
         Scanner le = new Scanner(System.in);
         System.out.println("############### CADASTRAR FUNCIONARIO #############");
@@ -84,7 +93,6 @@ public class Principal2
         System.out.println("## 1) Cadastrar Funcionario");
         System.out.println("## 2) Listar Funcionarios ");
         System.out.println("## 3) Listar Funcionarios Sindicalizados ");
-        //DESAFIO, IMPLEMENTAR O ITEM 3
         System.out.println("## 4) Editar Funcionario");
         System.out.println("## 5) Sair ");
         
