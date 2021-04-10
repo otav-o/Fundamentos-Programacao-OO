@@ -58,8 +58,19 @@ public class Principal2
             ((Professor)func).setNumeroAula( le.nextInt() );
             System.out.print("## Valor Hora :");
             ((Professor)func).setValorHora( le.nextDouble() );
+        } else
+        if ( func instanceof Motorista){
+            System.out.print("## Quilômetros percorridos :");
+            ((Motorista)func).setKmPercorrido( le.nextInt() );
+            System.out.print("## Preço por km :");
+            ((Motorista)func).setPrecoPorKm( le.nextDouble() );
+            System.out.print("## Tem pedágio? (S/N) :");
+            ((Motorista)func).setTemPedagio( le.next().equalsIgnoreCase("s")); // já valeu o ponto extra
+        } else
+        if ( func instanceof Vendedor){
+            System.out.print("## Valor de vendas :");
+            ((Vendedor)func).setValorVendas( le.nextDouble() );
         }
-        //TERMINAR O CODIGO
         
         
              
