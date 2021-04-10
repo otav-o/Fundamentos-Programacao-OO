@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Professor
+comment1.params=
+comment1.target=double\ salario()
+comment2.params=
+comment2.target=double\ valorSindacato()
+comment3.params=numeroAula
+comment3.target=void\ setNumeroAula(int)
+comment4.params=
+comment4.target=int\ getNumeroAula()
+comment5.params=valorHora
+comment5.target=void\ setValorHora(double)
+comment6.params=
+comment6.target=double\ getValorHora()
+numComments=7
