@@ -5,6 +5,15 @@ public class Motorista extends Funcionario implements ISindicato, IInsalubridade
     private double precoPorKm;
     private boolean temPedagio;
 
+    public Motorista() { }
+
+    public Motorista(String nome, int tempoCasa, int numeroFilhos, int kmPercorrido, double precoPorKm, boolean temPedagio) {
+        super(nome, tempoCasa, numeroFilhos);
+        this.kmPercorrido = kmPercorrido;
+        this.precoPorKm = precoPorKm;
+        this.temPedagio = temPedagio;
+    }
+
     public int getKmPercorrido() {
         return kmPercorrido;
     }

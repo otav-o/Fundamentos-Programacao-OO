@@ -10,7 +10,21 @@ public class Principal2
         Scanner le = new Scanner(System.in);
         
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
-        
+
+        // Tester
+        Professor p = new Professor();
+        p.setNome("Zezin");
+        p.setTempoCasa(10);
+        p.setNumeroFilhos(2);
+        p.setNumeroAula(8);
+        p.setValorHora(8);
+        funcionarios.add(p);
+
+        funcionarios.add(new Motorista("Pedrin", 10, 2, 500, 5, false));
+
+        funcionarios.add(new Vendedor());
+        funcionarios.add(new Radiologista());
+
         while(true){
          int menu = menu();   
          
@@ -33,7 +47,9 @@ public class Principal2
         System.out.println("## Funcionários sindicalizados: ");
         for (Funcionario f : funcionarios)
             if (f instanceof ISindicato)
-                System.out.println(f.getNome());
+                System.out.println("## Nome: " + f.getNome() +
+                        " - R$" + ((ISindicato)f).valorSindacato());
+            else System.out.println("## Nome: " + f.getNome() + " não é sindicalizado.");
     }
 
     public static Funcionario cadastrarFuncionario(){

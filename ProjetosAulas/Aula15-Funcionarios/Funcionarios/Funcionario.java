@@ -9,7 +9,13 @@ public abstract class Funcionario
     public Funcionario(){
         
     }
-        
+
+    public Funcionario(String nome, int tempoCasa, int numeroFilhos) {
+        this.nome = nome;
+        this.tempoCasa = tempoCasa;
+        this.numeroFilhos = numeroFilhos;
+    }
+
     public abstract double salario();
     
     public int quinquenio(){
