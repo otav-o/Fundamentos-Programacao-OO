@@ -35,23 +35,37 @@ public class Executavel {
         switch (resp) {
             case 1: criarContaMenu(b); break;
             case 2: consultarContaMenu(b); break;
-            /*
             case 3: excluirContaMenu(b); break;
+            /*
             case 4: relatorioBanco(b); break;
             */
             default:
         }
     }
 
+    private void excluirContaMenu(Banco b) {
+        var c = recuperarConta(b);
+
+        System.out.println("Deseja excluir esta conta? [S/N]");
+        var resp = s.next();
+
+        if (resp.equalsIgnoreCase("S"))
+            b.removerConta(c.getNumero());
+    }
+
     private void consultarContaMenu(Banco b) {
+        var conta = recuperarConta(b);
+        menuConta(conta);
+    }
+
+    private Conta recuperarConta(Banco b) {
         System.out.println("Insira o número da conta: ");
         var resp = s.nextInt();
         var conta = b.procurarConta(resp);
         // verificar se conta existe
         System.out.println("Conta encontrada:\n" + ((Imprimivel) conta).mostrarDados());
 
-        menuConta(conta);
-
+        return conta;
     }
 
     private void menuConta(Conta conta) {
@@ -103,7 +117,7 @@ public class Executavel {
 
         }
 
-        b.inserirConta(contaCriada); // quebrar este método em outros
+        b.inserirConta(contaCriada);
     }
 
     private Scanner s = new Scanner(System.in);
