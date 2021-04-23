@@ -1,6 +1,12 @@
 package Contas;
 
 public class ContaPoupanca extends Conta implements Imprimivel {
+
+    public ContaPoupanca(int numero, double limite) {
+        this.numeroConta = numero;
+        this.limite = limite;
+    }
+
     @Override
     public void sacar(double valor) {
         if (valor <= saldo)
@@ -13,14 +19,15 @@ public class ContaPoupanca extends Conta implements Imprimivel {
 
     @Override
     public void depositar(double valor) {
-
+        if (valor > 0)
+            saldo += valor;
     }
 
     @Override
     public String mostrarDados() {
         return String.format("Número da conta: %d\n" +
-                "Saldo: %f\n" +
-                "Limite: R$%f", numeroConta, saldo, limite);
+                "Saldo: %.2f\n" +
+                "Limite: R$%.2f", numeroConta, saldo, limite);
     }
 
     private double limite;
