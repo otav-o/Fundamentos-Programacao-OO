@@ -55,7 +55,7 @@ public class Executavel {
 
     private void consultarContaMenu(Banco b) {
         var conta = recuperarConta(b);
-        menuConta(conta);
+        menuConta(conta, b);
     }
 
     private Conta recuperarConta(Banco b) {
@@ -68,7 +68,7 @@ public class Executavel {
         return conta;
     }
 
-    private void menuConta(Conta conta) {
+    private void menuConta(Conta conta, Banco banco) {
         System.out.printf("""
                 Escolha uma operação com a conta %d
                 (a) Depositar
@@ -84,12 +84,20 @@ public class Executavel {
         switch (resp) {
             case "a": conta.depositar(valor); break;
             case "b": conta.sacar(valor); break;
-            // case "c":
+            case "c": menuTransferencia(conta, banco, valor);
             default:
         }
     }
 
+    private void menuTransferencia(Conta origem, Banco banco, double valor) {
+        System.out.println("## Conta de destino");
+        var destino = recuperarConta(banco);
 
+        System.out.println();
+        origem.sacar(valor);
+        destino.depositar(valor);
+        System.out.println("Transferência concluída.");
+    }
 
 
     private void criarContaMenu(Banco b) {
