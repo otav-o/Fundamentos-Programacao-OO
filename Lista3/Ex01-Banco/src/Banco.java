@@ -33,7 +33,7 @@ public class Banco implements Imprimivel {
         String retorno = "";
 
         for (var c: contas) {
-            retorno += ((Imprimivel) c).mostrarDados() + "\n";
+            retorno += ((Imprimivel) c).mostrarDados() + "\n\n";
         }
 
         return retorno;

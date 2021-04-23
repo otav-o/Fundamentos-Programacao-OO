@@ -36,9 +36,9 @@ public class Executavel {
             case 1: criarContaMenu(b); break;
             case 2: consultarContaMenu(b); break;
             case 3: excluirContaMenu(b); break;
-            /*
-            case 4: relatorioBanco(b); break;
-            */
+            case 4: {
+                System.out.println(b.mostrarDados());
+            }
             default:
         }
     }
