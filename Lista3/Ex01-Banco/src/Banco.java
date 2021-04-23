@@ -9,22 +9,22 @@ public class Banco implements Imprimivel {
         contas.add(c);
     }
 
-    public Conta procurarConta(int numero) {
+    public Conta procurarConta(int numero) throws Exception {
         var indice = encontrarIndiceConta(numero);
         return contas.get(indice);
     }
 
-    public void removerConta(int numero) {
+    public void removerConta(int numero) throws Exception {
         var indice = encontrarIndiceConta(numero);
         contas.remove(indice);
     }
 
-    private int encontrarIndiceConta(int numeroConta) {
+    private int encontrarIndiceConta(int numeroConta) throws Exception {
         for (var c : contas)
             if (c.getNumero() == numeroConta)
                 return contas.indexOf(c);
 
-        return -1;
+        throw new Exception("Não existe conta com este número");
     }
 
     @Override

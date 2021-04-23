@@ -12,13 +12,13 @@ public class ContaPoupanca extends Conta implements Imprimivel {
     }
 
     @Override
-    public void sacar(double valor) {
+    public void sacar(double valor) throws Exception {
         if (valor <= saldo)
             saldo -= valor;
         else if (valor <= saldo + limite)
             saldo -= valor; // ficará negativo até o valor do limite
         else
-            return;
+            throw new Exception("Limite indisponível");
     }
 
     @Override

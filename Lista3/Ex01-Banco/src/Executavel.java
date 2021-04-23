@@ -25,13 +25,18 @@ public class Executavel {
                 """);
 
         var resp = s.nextInt();
-        direcionarMenu(resp, banco);
 
-        if (resp != 5) resp = menu(banco);
-        return resp;
+        try {
+            direcionarMenu(resp, banco);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (resp != 5) resp = menu(banco);
+            return resp;
+        }
     }
 
-    private void direcionarMenu(int resp, Banco b) {
+    private void direcionarMenu(int resp, Banco b) throws Exception {
         switch (resp) {
             case 1: criarContaMenu(b); break;
             case 2: consultarContaMenu(b); break;
@@ -43,32 +48,38 @@ public class Executavel {
         }
     }
 
-    private void excluirContaMenu(Banco b) {
+    private void excluirContaMenu(Banco b) throws Exception {
         var c = recuperarConta(b);
 
         System.out.println("Deseja excluir esta conta? [S/N]");
         var resp = s.next();
 
-        if (resp.equalsIgnoreCase("S"))
+        if (resp.equalsIgnoreCase("S")) {
             b.removerConta(c.getNumero());
+            System.out.println("Conta excluída");
+        } else {
+            System.out.println("Operação cancelada");
+        }
+
     }
 
-    private void consultarContaMenu(Banco b) {
+    private void consultarContaMenu(Banco b) throws Exception {
         var conta = recuperarConta(b);
         menuConta(conta, b);
     }
 
-    private Conta recuperarConta(Banco b) {
+    private Conta recuperarConta(Banco b) throws Exception {
         System.out.println("Insira o número da conta: ");
         var resp = s.nextInt();
+
         var conta = b.procurarConta(resp);
-        // verificar se conta existe
+
         System.out.println("Conta encontrada:\n" + ((Imprimivel) conta).mostrarDados());
 
         return conta;
     }
 
-    private void menuConta(Conta conta, Banco banco) {
+    private void menuConta(Conta conta, Banco banco) throws Exception {
         System.out.printf("""
                 Escolha uma operação com a conta %d
                 (a) Depositar
@@ -82,14 +93,20 @@ public class Executavel {
         var valor = s.nextDouble();
 
         switch (resp) {
-            case "a": conta.depositar(valor); break;
-            case "b": conta.sacar(valor); break;
+            case "a":
+                conta.depositar(valor);
+                System.out.println("Depósito realizado.");
+                break;
+            case "b":
+                conta.sacar(valor);
+                System.out.println("Saque realizado");
+                break;
             case "c": menuTransferencia(conta, banco, valor);
             default:
         }
     }
 
-    private void menuTransferencia(Conta origem, Banco banco, double valor) {
+    private void menuTransferencia(Conta origem, Banco banco, double valor) throws Exception {
         System.out.println("## Conta de destino");
         var destino = recuperarConta(banco);
 
@@ -126,6 +143,8 @@ public class Executavel {
         }
 
         b.inserirConta(contaCriada);
+
+        System.out.println("Conta criada!");
     }
 
     private Scanner s = new Scanner(System.in);

@@ -12,7 +12,10 @@ public class ContaCorrente extends Conta implements Imprimivel {
     }
 
     @Override
-    public void sacar(double valor) {
+    public void sacar(double valor) throws Exception {
+        if (valor + taxaOperacao > saldo) {
+            throw new Exception("Saldo insuficiente");
+        }
         saldo -= (valor + taxaOperacao);
     }
 
