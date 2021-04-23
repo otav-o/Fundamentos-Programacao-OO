@@ -7,6 +7,10 @@ public class ContaPoupanca extends Conta implements Imprimivel {
         this.limite = limite;
     }
 
+    public int getNumero() {
+        return numeroConta;
+    }
+
     @Override
     public void sacar(double valor) {
         if (valor <= saldo)

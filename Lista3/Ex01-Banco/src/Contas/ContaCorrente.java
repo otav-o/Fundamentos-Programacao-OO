@@ -7,6 +7,10 @@ public class ContaCorrente extends Conta implements Imprimivel {
         this.taxaOperacao = taxaOperacao;
     }
 
+    public int getNumero() {
+        return numeroConta;
+    }
+
     @Override
     public void sacar(double valor) {
         saldo -= (valor + taxaOperacao);
