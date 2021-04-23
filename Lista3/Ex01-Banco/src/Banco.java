@@ -1,8 +1,9 @@
 import Contas.Conta;
+import Contas.Imprimivel;
 
 import java.util.ArrayList;
 
-public class Banco {
+public class Banco implements Imprimivel {
 
     public void inserirConta(Conta c) {
         contas.add(c);
@@ -26,5 +27,17 @@ public class Banco {
         return -1;
     }
 
+    @Override
+    public String mostrarDados() {
+
+        String retorno = "";
+
+        for (var c: contas) {
+            retorno += ((Imprimivel) c).mostrarDados() + "\n";
+        }
+
+        return retorno;
+    }
+    
     private ArrayList<Conta> contas;
 }
