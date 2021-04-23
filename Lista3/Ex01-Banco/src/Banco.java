@@ -38,6 +38,6 @@ public class Banco implements Imprimivel {
 
         return retorno;
     }
-    
-    private ArrayList<Conta> contas;
+
+    private ArrayList<Conta> contas = new ArrayList<>();
 }
