@@ -1,4 +1,8 @@
 public class Mulher extends PessoaIMC {
+    public Mulher(double peso, double altura) {
+        super(peso, altura);
+    }
+
     @Override
     public String resultIMC() {
         double imc = calculaIMC();
