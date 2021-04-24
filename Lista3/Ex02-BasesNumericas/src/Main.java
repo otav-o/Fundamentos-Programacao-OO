@@ -9,5 +9,8 @@ public class Main {
 
         Octal o = new Octal(164789);
         System.out.println(o.getOctal());
+
+        Hexadecimal h = new Hexadecimal(1000);
+        System.out.println(h.getHexadecimal());
     }
 }
