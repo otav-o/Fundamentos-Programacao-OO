@@ -12,7 +12,7 @@ public abstract class PessoaIMC extends Pessoa{
 
     @Override
     public String toString() {
-        return String.format("Nome: %s Data de Nascimento: %s Peso: %s Altura: %s");
+        return String.format("Nome: %s Data de Nascimento: %s Peso: %s Altura: %s", nome, dataNascimento, peso, altura);
     }
 
     private double peso;

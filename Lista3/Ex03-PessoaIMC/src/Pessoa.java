@@ -6,6 +6,6 @@ public class Pessoa {
         return String.format("Nome: %s Data de Nascimento: %s", nome, dataNascimento.toString());
     }
 
-    private String nome;
-    private LocalDate dataNascimento;
+    protected String nome;
+    protected LocalDate dataNascimento;
 }
