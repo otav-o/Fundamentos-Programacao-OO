@@ -1,4 +1,4 @@
-public abstract class BaseNumerica {
+public abstract class BaseNumerica implements ICalculoBase {
 
     protected int decimal;
 }

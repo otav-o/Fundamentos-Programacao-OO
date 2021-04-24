@@ -3,7 +3,7 @@ public class Octal extends BaseNumerica{
         this.decimal = decimal;
     }
 
-    public String getOctal() {
+    public String getResultado() {
         int resultado = decimal;
         String octal = "";
         do {

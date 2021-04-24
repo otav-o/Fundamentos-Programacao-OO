@@ -4,7 +4,7 @@ public class Binario extends BaseNumerica {
         this.decimal = decimal;
     }
 
-    public String getBinario() {
+    public String getResultado() {
         int resultado = decimal;
         String bin = "";
         do {

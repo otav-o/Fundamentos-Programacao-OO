@@ -3,7 +3,7 @@ public class Hexadecimal extends BaseNumerica {
         this.decimal = decimal;
     }
 
-    public String getHexadecimal() {
+    public String getResultado() {
         int resultado = decimal;
         String hexa = "";
         do {
