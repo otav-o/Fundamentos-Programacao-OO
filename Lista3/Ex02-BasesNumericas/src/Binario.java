@@ -1,4 +1,4 @@
-public class Binario {
+public class Binario extends BaseNumerica {
 
     public Binario(int decimal) {
         this.decimal = decimal;
@@ -14,6 +14,4 @@ public class Binario {
 
         return new StringBuilder(bin).reverse().toString();
     }
-
-    private int decimal;
 }
