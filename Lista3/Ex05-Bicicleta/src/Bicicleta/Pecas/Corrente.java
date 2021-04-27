@@ -8,13 +8,21 @@ public class Corrente implements IPeca {
 
     @Override
     public double getPreco() {
+        double valor;
         if (espessura > 50)
-            return 120;
+            valor = 120;
         else if (espessura > 100)
-            return 250;
+            valor = 250;
         else
-            return 70;
+            valor = 70;
+        return ehImportado ? valor * 1.3 : valor;
+    }
+
+    @Override
+    public boolean getEhImportado() {
+        return ehImportado;
     }
 
     private double espessura;
+    private boolean ehImportado;
 }

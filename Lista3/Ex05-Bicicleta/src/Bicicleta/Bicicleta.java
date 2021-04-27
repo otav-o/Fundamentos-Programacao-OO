@@ -11,13 +11,14 @@ import java.util.List;
 
 public class Bicicleta implements IPreco {
 
-    public Bicicleta(int aro, int tamanhoBanco, int maciezBanco, double espessuraCorrente) {
+    public Bicicleta(int aro, int tamanhoBanco, int maciezBanco, double espessuraCorrente, boolean ehImportado) {
         addPeca(
-                new Roda(aro),
-                new Roda(aro), 
-                new Banco(tamanhoBanco, maciezBanco),
+                new Roda(aro, true),
+                new Roda(aro, true),
+                new Banco(tamanhoBanco, maciezBanco, false),
                 new Corrente(espessuraCorrente)
         );
+        this.ehImportado = ehImportado;
     }
 
     public void addAcessorio(IAcessorio... acessorio) {
@@ -32,7 +33,12 @@ public class Bicicleta implements IPreco {
             total += objeto.getPreco();
         for (IPreco objeto : pecas)
             total += objeto.getPreco();
-        return total;
+        return ehImportado ? total * 1.3 : total;
+    }
+
+    @Override
+    public boolean getEhImportado() {
+        return ehImportado;
     }
 
     private void addPeca(IPeca... pecas) {
@@ -43,4 +49,5 @@ public class Bicicleta implements IPreco {
     private List<IPeca> pecas = new ArrayList<>();
     private List<IAcessorio> acessorios = new ArrayList<>();
     private String cor;
+    private boolean ehImportado;
 }
